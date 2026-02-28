@@ -29,7 +29,7 @@ public class WordPressSteps extends BaseTest {
     @When("user navigates to Get WordPress page")
     public void navigateToGetWordPress() {
         homePage = new HomePage(driver);
-        homePage.mouseOverDownloadAndClickGetWordPress();
+        homePage.mouseOver();
     }
 
     @Then("verify Get WordPress text")
@@ -40,17 +40,17 @@ public class WordPressSteps extends BaseTest {
 
     @When("user navigates to Photo Directory")
     public void navigateToPhotoDirectory() {
-        homePage.clickPhotoDirectory();
+        homePage.photoDirectoryClick();
     }
 
     @And("user searches photo {string}")
     public void searchPhoto(String photoName) {
         photoPage = new PhotoDirectoryPage(driver);
-        photoPage.searchPhoto(photoName);
+        photoPage.searchImage(photoName);
     }
 
     @Then("verify photos are displayed")
     public void verifyPhotos() {
-        Assert.assertTrue(photoPage.areImagesDisplayed());
+        photoPage.isImageDisplayed();
     }
 }
